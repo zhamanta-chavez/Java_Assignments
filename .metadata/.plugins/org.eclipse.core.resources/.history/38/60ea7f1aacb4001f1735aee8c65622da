@@ -1,0 +1,19 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DatabaseConnection {
+
+    // Method to establish the connection to the database
+    public static Connection getConnection() throws SQLException {
+        // Database URL (replace with your database details)
+        String url = "jdbc:mysql://localhost:3306/your_database_name"; // Change this URL based on your setup
+        String user = "Zhami"; // Replace with your MySQL username
+        String password = "123"; // Replace with your MySQL password
+
+        // Establish the connection
+        Connection conn = DriverManager.getConnection(url, user, password);
+        
+        return conn; // Return the connection object
+    }
+}

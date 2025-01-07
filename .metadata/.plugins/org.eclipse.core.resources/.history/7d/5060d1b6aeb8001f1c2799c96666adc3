@@ -1,0 +1,50 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SelectionSortDemo {
+
+    // Method to perform selection sort on an array
+    public static void selectionSort(int[] array) {
+        int n = array.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            // Find the index of the minimum element in the unsorted portion
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            // Swap the found minimum element with the first element in the unsorted portion
+            if (minIndex != i) {
+                int temp = array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
+            }
+        }
+    }
+
+    // Demo function to test selection sort
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] array = new int[5];
+
+        System.out.println("Enter 5 numbers:");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Number " + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
+
+        System.out.println("Original array:");
+        System.out.println(Arrays.toString(array));
+
+        selectionSort(array);
+
+        System.out.println("Sorted array:");
+        System.out.println(Arrays.toString(array));
+
+        scanner.close();
+    }
+}
+

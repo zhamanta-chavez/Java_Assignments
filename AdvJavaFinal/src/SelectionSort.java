@@ -1,0 +1,65 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+/*Zhamanta 
+ * INEW 2338
+ * Description: Final Exam Question 2
+ * Selection Sort
+ */
+
+public class SelectionSort 
+{
+	
+
+    public static void selectionSort(int[] array) 
+    {
+        int n = array.length;
+
+        for (int i = 0; i < n - 1; i++) 
+        {
+        	
+            //Finds the index of the minimum element 
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) 
+            {
+                if (array[j] < array[minIndex]) 
+                {
+                    minIndex = j;
+                }
+            }
+
+            //Interchanges the minimum element with the first element in the unsorted portion
+            if (minIndex != i) {
+            	
+                int temp = array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
+            }
+        }
+    }
+
+    //Tests selection sort
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        int[] array = new int[5];
+
+        System.out.println("Enter 5 numbers:");
+        for (int i = 0; i < 5; i++) 
+        {
+            System.out.print("Number " + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
+
+        System.out.println("Original:");
+        System.out.println(Arrays.toString(array));
+
+        selectionSort(array);
+
+        System.out.println("Sorted:");
+        System.out.println(Arrays.toString(array));
+
+        scanner.close();
+    }
+}
+

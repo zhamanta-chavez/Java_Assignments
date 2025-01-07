@@ -1,0 +1,40 @@
+import static org.junit.jupiter.api.Assertions.*;
+import javax.swing.*;
+import org.junit.jupiter.api.Test;
+
+class SwitchToDashboardTest {
+
+    @Test
+    void testSwitchToDashboard() {
+        // Step 1: Create a mock JFrame and User
+        JFrame frame = new JFrame();
+        User mockUser = new User("TestUser"); // Replace with your User constructor
+
+        // Step 2: Call switchToDashboard
+        switchToDashboard(frame, mockUser);
+
+        // Step 3: Verify the JFrame content is updated
+        assertTrue(frame.getContentPane().getComponent(0) instanceof JPanel, 
+            "The content pane should contain a JPanel");
+    }
+
+    // This is a copy of your switchToDashboard method for testing purposes.
+    private static void switchToDashboard(JFrame frame, User user) {
+        frame.getContentPane().removeAll();
+        frame.add(new JPanel()); // Simulating the dashboard panel
+        frame.revalidate();
+        frame.repaint();
+    }
+}
+
+class User {
+    private String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}

@@ -1,0 +1,37 @@
+public class Generics 
+
+/*Zhamanta 
+ * INEW 2338
+ * Description: Final Exam Question 3
+ * Generics
+ */
+
+{
+
+    // Template method to find the smallest value
+    public static <T extends Comparable<T>> T smallest(T a, T b) {
+        return (a.compareTo(b) < 0) ? a : b;
+    }
+
+    // Template method to find the largest value
+    public static <T extends Comparable<T>> T largest(T a, T b) {
+        return (a.compareTo(b) > 0) ? a : b;
+    }
+
+    public static void main(String[] args) {
+        // Demonstrate with integers
+        int int1 = 10, int2 = 20;
+        System.out.println("Smaller of " + int1 + " and " + int2 + " is: " + smallest(int1, int2));
+        System.out.println("Larger of " + int1 + " and " + int2 + " is: " + largest(int1, int2));
+
+        // Demonstrate with doubles
+        double double1 = 15.5, double2 = 9.3;
+        System.out.println("Smaller of " + double1 + " and " + double2 + " is: " + smallest(double1, double2));
+        System.out.println("Larger of " + double1 + " and " + double2 + " is: " + largest(double1, double2));
+
+        // Demonstrate with strings
+        String str1 = "apple", str2 = "banana";
+        System.out.println("Smaller of '" + str1 + "' and '" + str2 + "' is: " + smallest(str1, str2));
+        System.out.println("Larger of '" + str1 + "' and '" + str2 + "' is: " + largest(str1, str2));
+    }
+}

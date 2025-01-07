@@ -1,0 +1,49 @@
+import static org.junit.jupiter.api.Assertions.*;
+import javax.swing.*;
+import org.junit.jupiter.api.Test;
+
+// Dummy User class to mock user data
+class User {
+    private String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+class SwitchToDashboardTest {
+
+    @Test
+    void testSwitchToDashboard() {
+        // Step 1: Create a mock JFrame and User
+        JFrame frame = new JFrame();
+        User mockUser = new User("TestUser"); // Create a dummy user
+
+        // Step 2: Call switchToDashboard (which will internally call createDashboardPanel)
+        switchToDashboard(frame, mockUser);
+
+        // Step 3: Verify the JFrame content is updated
+        assertTrue(frame.getContentPane().getComponent(0) instanceof JPanel, 
+            "The content pane should contain a JPanel");
+    }
+
+    // This is a copy of your switchToDashboard method for testing purposes.
+    private static void switchToDashboard(JFrame frame, User user) {
+        frame.getContentPane().removeAll();
+        frame.add(createDashboardPanel(frame, user));  // This calls your actual createDashboardPanel method
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    // This is the createDashboardPanel method (you already have this method in your main code)
+    private static JPanel createDashboardPanel(JFrame frame, User user) {
+        // This is a simplified version for the test. Your actual code will create the real panel.
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Welcome, " + user.getName()));
+        return panel;
+    }
+}

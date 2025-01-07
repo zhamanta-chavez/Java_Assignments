@@ -1,0 +1,73 @@
+import java.util.Stack;
+
+/*Zhamanta 
+ * INEW 2338
+ * Description: Final Exam Question 1
+ * Pop
+ */
+
+public class Pop 
+{
+    private Stack<String> names;
+
+    //Constructor to initialize the stack
+    public Pop() 
+    {
+        names = new Stack<>();
+    }
+
+    //Method to add a name to the stack
+    public void addName(String name) 
+    {
+        names.push(name);
+        System.out.println(name + " has been added to the list.");
+    }
+
+    //Method to remove the last added name from the stack
+    public String removeFromTop() 
+    {
+        if (!names.isEmpty()) {
+            String removedName = names.pop();
+            System.out.println(removedName + " has been removed from the list.");
+            return removedName;
+        } else {
+            System.out.println("The list is empty. Nothing to remove.");
+            return null;
+        }
+    }
+
+    //Method to display the current list of names
+    public void displayNames() 
+    {
+        if (names.isEmpty()) 
+        {
+            System.out.println("The list is currently empty.");
+        } else {
+            System.out.println("Current list of names: " + names);
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        Pop nameManager = new Pop();
+
+        //Add names
+        nameManager.addName("Zhamanta");
+        nameManager.addName("James");
+        nameManager.addName("Lily");
+
+        //Display current names
+        nameManager.displayNames();
+
+        //Remove from top
+        nameManager.removeFromTop();
+
+        //Display names after removal
+        nameManager.displayNames();
+
+        //Attempt to remove when empty
+        nameManager.removeFromTop();
+        nameManager.removeFromTop();
+        nameManager.removeFromTop(); //Should display an empty message
+    }
+}

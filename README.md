@@ -1,3 +1,10 @@
+<h1>Business Applications Portfolio</h1>
+<p>
+  This repository presents a collection of Java projects that integrate software development with business and data applications.
+  The work emphasizes practical problem-solving, enterprise logic, and data handling—skills that connect directly to business analytics
+  and real-world operations. Each project includes a detailed reflection explaining design decisions, implementation strategies, and lessons learned.
+</p>
+
 <h2>User Management and Content Application (AdvJavaW7)</h2>
 
 - <b>Reflection</b>
